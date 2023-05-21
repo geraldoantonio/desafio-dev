@@ -39,6 +39,7 @@ gem 'bootsnap', require: false
 # gem "sassc-rails"
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails', '~> 6.0.0'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -58,4 +59,4 @@ group :development do
   gem 'solargraph', '~> 0.49.0'
 end
 
-gem "interactor", "~> 3.1"
+gem 'interactor', '~> 3.1'
