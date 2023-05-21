@@ -60,3 +60,5 @@ group :development do
 end
 
 gem 'interactor', '~> 3.1'
+
+gem "cpf_cnpj", "~> 0.5.0"
