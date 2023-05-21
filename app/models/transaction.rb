@@ -19,6 +19,10 @@ class Transaction < ApplicationRecord
 
   validate :cpf_must_be_valid
 
+  scope :ordered_by_store_name, -> { joins(:store).order('stores.name' => :asc) }
+
+  delegate :owner, :name, to: :store, prefix: true
+
   def amount
     return unless amount_in_cents.present?
 
@@ -27,6 +31,24 @@ class Transaction < ApplicationRecord
 
   def amount=(value)
     self.amount_in_cents = (value * 100).to_i
+  end
+
+  def amount_humanized
+    return unless amount.present?
+
+    ActiveSupport::NumberHelper.number_to_currency(
+      amount * (NEGATIVE_KINDS.include?(kind) ? -1 : 1),
+      unit: 'R$',
+      separator: ',',
+      delimiter: '.',
+      negative_format: '- %u %n'
+    )
+  end
+
+  def cpf_humanized
+    return unless cpf.present?
+
+    CPF.new(cpf).formatted
   end
 
   private

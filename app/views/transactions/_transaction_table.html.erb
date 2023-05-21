@@ -1,0 +1,16 @@
+<table class='table table-striped table-hover'>
+  <head class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kind</th>
+      <th scope="col">Amount</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Card Number</th>
+      <th scope="col">Occurrence At</th>
+      <th scope="col">Store Owner</th>
+      <th scope="col">Store Name</th>
+    </tr>
+  </head>
+
+  <%= render partial: 'transaction_item', collection: transactions, as: :transaction %>
+</table>
