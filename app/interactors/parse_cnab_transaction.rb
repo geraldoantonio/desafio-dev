@@ -9,7 +9,7 @@
 #   card_number: '4753****3153',
 #   occurrence_at: '2019-03-01 15:34:53',
 #   owner_name: 'JOÃO MACEDO',
-#   establishment_name: 'BAR DO JOÃO'
+#   store_name: 'BAR DO JOÃO'
 # }
 class ParseCnabTransaction
   include Interactor
@@ -28,7 +28,7 @@ class ParseCnabTransaction
       card_number: transaction[30..41],
       occurrence_at: OCCURRENCE_AT[transaction],
       owner_name: transaction[48..61].strip,
-      establishment_name: transaction[62..80].strip
+      store_name: transaction[62..80].strip
     }
   end
 
