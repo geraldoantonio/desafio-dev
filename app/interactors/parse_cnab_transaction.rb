@@ -2,8 +2,8 @@
 
 # transaction = '3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO'
 # ParseCnabTransaction.call(transaction: transaction)
-# => {
-#   kind: '3',
+# => Transaction:0x00007f8b6c0b6a10
+#   kind: 3,
 #   amount_in_cents: 14200,
 #   cpf: '09620676017',
 #   card_number: '4753****3153',
@@ -17,14 +17,30 @@ class ParseCnabTransaction
   include Interactor
 
   def call
-    context.parsed_transaction = PARSE_TRANSACTION[context.transaction]
+    transaction = build_transaction(PARSE_TRANSACTION[context.transaction])
+
+    if transaction.valid?
+      context.parsed_transaction = transaction
+    else
+      context.fail!(message: transaction.errors.full_messages.to_sentence)
+    end
   rescue StandardError
     context.fail!(message: "Invalid transaction: #{context.transaction}")
   end
 
+  def build_transaction(params)
+    Transaction.new(
+      params.except(:store).merge(store: build_store(params[:store]))
+    )
+  end
+
+  def build_store(params)
+    Store.find_or_create_by(params)
+  end
+
   PARSE_TRANSACTION = lambda do |transaction|
     {
-      kind: transaction[0..0],
+      kind: transaction[0].to_i,
       amount_in_cents: transaction[9..18].to_i,
       cpf: transaction[19..29],
       card_number: transaction[30..41],
