@@ -8,8 +8,10 @@
 #   cpf: '09620676017',
 #   card_number: '4753****3153',
 #   occurrence_at: '2019-03-01 15:34:53',
-#   owner_name: 'JOÃO MACEDO',
-#   store_name: 'BAR DO JOÃO'
+#   store: {
+#     name: 'BAR DO JOÃO',
+#     owner: 'JOÃO MACEDO'
+#   }
 # }
 class ParseCnabTransaction
   include Interactor
@@ -27,8 +29,10 @@ class ParseCnabTransaction
       cpf: transaction[19..29],
       card_number: transaction[30..41],
       occurrence_at: OCCURRENCE_AT[transaction],
-      owner_name: transaction[48..61].strip,
-      store_name: transaction[62..80].strip
+      store: {
+        name: transaction[62..80].strip,
+        owner: transaction[48..61].strip
+      }
     }
   end
 

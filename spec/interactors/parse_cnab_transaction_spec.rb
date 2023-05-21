@@ -18,8 +18,10 @@ RSpec.describe ParseCnabTransaction, type: :interactor do # rubocop:disable Metr
           amount_in_cents: 14_200,
           cpf: '09620676017',
           card_number: '4753****3153',
-          owner_name: 'JOÃO MACEDO',
-          store_name: 'BAR DO JOÃO'
+          store: {
+            owner: 'JOÃO MACEDO',
+            name: 'BAR DO JOÃO'
+          }
         )
 
         occurrence_at = parsed_transaction[:occurrence_at]
