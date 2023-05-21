@@ -17,7 +17,7 @@ class ParseCnabTransaction
   def call
     context.parsed_transaction = PARSE_TRANSACTION[context.transaction]
   rescue StandardError
-    context.fail!(message: 'Invalid transaction')
+    context.fail!(message: "Invalid transaction: #{context.transaction}")
   end
 
   PARSE_TRANSACTION = lambda do |transaction|

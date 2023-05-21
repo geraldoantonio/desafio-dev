@@ -32,7 +32,7 @@ RSpec.describe ParseCnabTransaction, type: :interactor do # rubocop:disable Metr
 
       it 'returns the expected result' do
         expect(context).to be_failure
-        expect(context.message).to eq('Invalid transaction')
+        expect(context.message).to eq('Invalid transaction: invalid transaction')
       end
 
       it 'does not return a parsed transaction' do
