@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :transactions, only: %i[index import]
+  get 'transactions', to: 'transactions#index'
+  get 'transactions/import', to: 'transactions#import'
+  post 'transactions/import', to: 'transactions#import_file'
 
   root 'transactions#index'
 end

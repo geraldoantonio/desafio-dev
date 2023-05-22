@@ -7,8 +7,17 @@ class TransactionsController < ApplicationController
   end
 
   def import
+    render :import
+  end
+
+  def import_file
     result = ImportTransactionsFromTextFile.call(file_path: params[:file])
 
-    redirect_to transactions_path, notice: result.message
+    if result.success?
+      redirect_to transactions_path, notice: result.message
+    else
+      flash[:error] = result.message
+      render :import
+    end
   end
 end

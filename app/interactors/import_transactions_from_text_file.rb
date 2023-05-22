@@ -8,6 +8,7 @@ class ImportTransactionsFromTextFile
   def call
     context.transactions = []
     parser_file!
+    context.message = 'Transactions imported with success'
   rescue StandardError => e
     context.fail!(message: 'fail to parse file', error: e.message)
   end
