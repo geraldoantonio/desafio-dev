@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <main class='container mt-4'>
+    <main class='container mt-4' style='min-height: 400px'>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= flash_class(key) %> alert-dismissible fade show" role="alert">
           <%= value %>

@@ -1,3 +1,11 @@
-<h1>Transactions</h1>
+<div class='content my-4 d-flex justify-content-between'>
+  <div>
+    <h1>Transactions</h1>
+  </div>
+
+  <div>
+    <%= link_to 'Import from file', transactions_import_path, class: 'btn btn-sm  btn-primary' %>
+  </div>
+</div>
 
 <%= render partial: 'transaction_table', locals: { transactions: @transactions }%>

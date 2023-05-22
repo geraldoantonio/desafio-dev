@@ -1,8 +1,14 @@
+<div class='content my-4 d-flex justify-content-between'>
+  <div>
+    <h1>Import File</h1>
+  </div>
+
+  <div>
+    <%= link_to 'Back to Home', root_path, class: 'btn btn-sm  btn-secondary' %>
+  </div>
+</div>
 
 <%= form_tag transactions_import_path, multipart: true, class: 'form' do %>
-  <fieldset>
-    <legend>Import File</legend>
-  </fieldset>
 
   <div class="mb-3">
     <label for="disabledTextInput" class="form-label">Select File</label>
