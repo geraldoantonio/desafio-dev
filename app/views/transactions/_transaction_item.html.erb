@@ -5,5 +5,8 @@
   <td><%= transaction.card_number %></td>
   <td><%= transaction.cpf_humanized %></td>
   <td><%= transaction.kind %></td>
-  <td><span class='text-right'><%= transaction.amount_humanized %></span></td>
+  <td style='display: none'><%= transaction.amount %></td>
+  <td class='text-end' width='100px'>
+    <%= transaction.amount_humanized %>
+  </td>
 </tr>

@@ -26,7 +26,7 @@ class Transaction < ApplicationRecord
   def amount
     return unless amount_in_cents.present?
 
-    amount_in_cents / 100.0
+    (amount_in_cents / 100.0) * (NEGATIVE_KINDS.include?(kind) ? -1 : 1)
   end
 
   def amount=(value)
@@ -37,7 +37,7 @@ class Transaction < ApplicationRecord
     return unless amount.present?
 
     ActiveSupport::NumberHelper.number_to_currency(
-      amount * (NEGATIVE_KINDS.include?(kind) ? -1 : 1),
+      amount,
       unit: 'R$',
       separator: ',',
       delimiter: '.',

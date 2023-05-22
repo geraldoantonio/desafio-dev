@@ -8,4 +8,6 @@
   </div>
 </div>
 
-<%= render partial: 'transaction_table', locals: { transactions: @transactions }%>
+<div class="table-responsive">
+  <%= render partial: 'transaction_table', locals: { transactions: @transactions }%>
+</div>
