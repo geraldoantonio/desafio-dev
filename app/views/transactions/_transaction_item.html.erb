@@ -1,10 +1,9 @@
 <tr>
-  <th scope="row"><%= transaction.id %></th>
+  <td><%= transaction.occurrence_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+  <td><%= transaction.store_name %></td>
+  <td><%= transaction.store_owner %></td>
+  <td><%= transaction.card_number %></td>
+  <td><%= transaction.cpf_humanized %></td>
   <td><%= transaction.kind %></td>
   <td><span class='text-right'><%= transaction.amount_humanized %></span></td>
-  <td><%= transaction.cpf_humanized %></td>
-  <td><%= transaction.card_number %></td>
-  <td><%= transaction.occurrence_at %></td>
-  <td><%= transaction.store_owner %></td>
-  <td><%= transaction.store_name %></td>
 </tr>
