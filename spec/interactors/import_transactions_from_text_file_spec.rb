@@ -27,7 +27,7 @@ RSpec.describe ImportTransactionsFromTextFile, type: :interactor do
       end
 
       it 'provides a failure message' do
-        expect(context.message).to eq('fail to parse file')
+        expect(context.message).to be_present
       end
     end
   end

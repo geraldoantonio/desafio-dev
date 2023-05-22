@@ -11,6 +11,10 @@ pt-BR:
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m/%Y, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
+  interactors:
+    import_file:
+      success: "Arquivo importado com sucesso"
+      failure: "Falha ao importar arquivo"
   activerecord:
     models:
       store: 

@@ -8,9 +8,9 @@ class ImportTransactionsFromTextFile
   def call
     context.transactions = []
     parser_file!
-    context.message = 'Transactions imported with success'
+    context.message = I18n.t('interactors.import_file.success')
   rescue StandardError => e
-    context.fail!(message: 'fail to parse file', error: e.message)
+    context.fail!(message: I18n.t('interactors.import_file.failure'), error: e.message)
   end
 
   private
