@@ -10,7 +10,7 @@ $(document).ready(function () {
   $('#transactions').DataTable({
     footerCallback: function(row, data, start, end, display) {
       var api = this.api();
-      var column = api.column(6, { page: 'current' });
+      var column = api.column(4, { page: 'current' });
 
       var sum = column.data().reduce(function(acc, value) {
         return acc + parseFloat(value);

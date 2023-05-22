@@ -1,0 +1,7 @@
+<tr>
+  <td><%= store.name %></td>
+  <td><%= store.owner %></td>
+  <td class='text-end' width='100px'>
+    <%= link_to 'Transactions', store_transactions_path(store), class: 'btn btn-sm btn-primary' %>
+  </td>
+</tr>

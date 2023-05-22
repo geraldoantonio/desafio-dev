@@ -2,10 +2,6 @@
 
 # Path: app/controllers/transactions_controller.rb
 class TransactionsController < ApplicationController
-  def index
-    @transactions = Transaction.includes(:store).ordered_by_store_name
-  end
-
   def import
     render :import
   end

@@ -1,0 +1,13 @@
+<table id='stores' class='display table table-striped table-hover'>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </head>
+
+  <tbody> 
+    <%= render partial: 'store', collection: stores %>
+  </tbody>
+</table>

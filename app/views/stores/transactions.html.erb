@@ -1,0 +1,16 @@
+<div class='content my-4 d-flex justify-content-between'>
+  <div>
+    <h3><%= @store.name %></h3>
+    <p>Owner: <%= @store.owner %></p>
+  </div>
+
+  <div>
+    <%= link_to 'Home', root_path, class: 'btn btn-sm  btn-secondary' %>
+
+    <%= link_to 'Import from file', transactions_import_path, class: 'btn btn-sm  btn-primary' %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <%= render partial: 'transactions/transaction_table', locals: { transactions: @transactions }%>
+</div>
