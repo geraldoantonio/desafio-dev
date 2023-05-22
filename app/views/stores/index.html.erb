@@ -8,6 +8,10 @@
   </div>
 </div>
 
-<div class="table-responsive">
-  <%= render partial: 'stores_table', locals: { stores: @stores }%>
-</div>
+<% if @stores.any? %>
+  <div class="table-responsive">
+    <%= render partial: 'stores_table', locals: { stores: @stores }%>
+  </div>
+<% else %>
+  <p>No stores found</p>
+<% end %>

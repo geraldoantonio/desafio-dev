@@ -10,7 +10,7 @@ class TransactionsController < ApplicationController
     result = ImportTransactionsFromTextFile.call(file_path: params[:file])
 
     if result.success?
-      redirect_to transactions_path, notice: result.message
+      redirect_to stores_path, notice: result.message
     else
       flash[:error] = result.message
       render :import
