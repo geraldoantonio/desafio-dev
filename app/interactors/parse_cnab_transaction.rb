@@ -29,7 +29,7 @@ class ParseCnabTransaction
   end
 
   def build_transaction(params)
-    Transaction.new(
+    Transaction.find_or_create_by(
       params.except(:store).merge(store: build_store(params[:store]))
     )
   end
