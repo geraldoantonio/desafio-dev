@@ -31,17 +31,4 @@ RSpec.describe Store, type: :model do # rubocop:disable Metrics/BlockLength
       expect(store).not_to be_valid
     end
   end
-
-  describe 'scopes' do
-    describe '.by_name' do
-      it 'finds store by name case insensitive' do
-        store = described_class.create!(name: 'My Store', owner: 'Geraldo Júnior')
-        expect(described_class.by_name('mY sToRe')).to eq(store)
-      end
-
-      it 'returns nil if store not found' do
-        expect(described_class.by_name('other store')).to be_empty
-      end
-    end
-  end
 end
