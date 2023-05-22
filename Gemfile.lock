@@ -98,6 +98,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.1.1)
+      railties (>= 6.0.0)
     json (2.6.3)
     kramdown (2.4.0)
       rexml
@@ -256,6 +258,7 @@ DEPENDENCIES
   debug
   interactor (~> 3.1)
   jbuilder
+  jsbundling-rails (~> 1.1)
   pg (~> 1.1)
   pry
   puma (~> 5.0)

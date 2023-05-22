@@ -20,6 +20,9 @@ gem 'puma', '~> 5.0'
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails'
 
+# Bundle and process JavaScript [https://github.com/rails/jsbundling-rails]
+gem 'jsbundling-rails', '~> 1.1'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
@@ -59,6 +62,5 @@ group :development do
   gem 'solargraph', '~> 0.49.0'
 end
 
+gem 'cpf_cnpj', '~> 0.5.0'
 gem 'interactor', '~> 3.1'
-
-gem "cpf_cnpj", "~> 0.5.0"
