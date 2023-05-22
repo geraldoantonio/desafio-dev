@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15.2-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432
+    volumes:
+      - ./tmp/postgres:/var/lib/postgresql/data
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/rails_app:cached
+      - /rails_app/node_modules/
+      - /rails_app/tmp/
+      - /rails_app/public/assets/
+      - /rails_app/vendor/cache/
+    environment:
+      RAIL_ENV: development
+      DATABASE_URL: postgres://postgres:postgres@db:5432/desafio_dev_development
+      PORT: 3000
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    command: sh -c "rm -f /tmp/server.pid && bundle && bundle exec rake db:create db:migrate db:seed && bundle exec rails server -b 0.0.0.0 -P /tmp/server.pid"

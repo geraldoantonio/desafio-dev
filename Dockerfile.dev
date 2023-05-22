@@ -1,0 +1,29 @@
+FROM ruby:3.2.1-slim
+
+# Set for all apt-get install, must be at the very beginning of the Dockerfile.
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update && apt-get install -qq -y --no-install-recommends \
+    build-essential curl file gnupg libpq-dev libvips42\
+    libxslt-dev libxml2-dev postgresql-client tzdata; \
+    rm -rf /var/lib/apt/lists/*
+
+# Non-interactive modes get set back.
+ENV DEBIAN_FRONTEND newt
+
+ENV APP_DIR /rails_app
+RUN mkdir $APP_DIR
+WORKDIR $APP_DIR
+
+ENV RAILS_ENV development
+ENV SECRET_KEY_BASE=b2dbf33c69a97603dd6fdb387fe68d7babdef8363c66e25c3bd59869596a2fc08499ca43d9cce1876679f6ec367c21a09eab71dc677af3adb7bb5950f90d3479
+
+RUN gem install bundler
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copy the main application.
+COPY . ./
+EXPOSE 3000
+
+CMD [ "bundle","exec", "rails", "s", "-b", "0.0.0.0" ]
