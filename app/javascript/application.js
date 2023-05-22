@@ -18,7 +18,7 @@ $(document).ready(function () {
 
       var amount = Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(sum);
 
-      $(row).find('th:eq(2)').text(amount);
+      $(row).find('th:eq(1)').text(amount);
     }
   });
 });

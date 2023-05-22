@@ -5,4 +5,8 @@ class Store < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :owner, presence: true
+
+  def balance
+    transactions.map(&:amount).sum
+  end
 end

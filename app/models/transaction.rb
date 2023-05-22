@@ -33,24 +33,6 @@ class Transaction < ApplicationRecord
     self.amount_in_cents = (value * 100).to_i
   end
 
-  def amount_humanized
-    return unless amount.present?
-
-    ActiveSupport::NumberHelper.number_to_currency(
-      amount,
-      unit: 'R$',
-      separator: ',',
-      delimiter: '.',
-      negative_format: '- %u %n'
-    )
-  end
-
-  def cpf_humanized
-    return unless cpf.present?
-
-    CPF.new(cpf).formatted
-  end
-
   private
 
   def cpf_must_be_valid
