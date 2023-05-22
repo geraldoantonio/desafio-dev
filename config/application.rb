@@ -22,6 +22,12 @@ Bundler.require(*Rails.groups)
 
 module DesafioDev
   class Application < Rails::Application
+    config.i18n.available_locales = ['pt-BR', :en]
+    config.active_record.default_timezone = :local # Or :utc
+    config.time_zone = 'Brazil/East'
+    config.i18n.default_locale = 'pt-BR'
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 

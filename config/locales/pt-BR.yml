@@ -1,0 +1,43 @@
+pt-BR:
+  no_stores: "Nenhuma loja encontrada"
+  import_transaction: "Importar movimentação"
+  sum: "Soma"
+  buttons:
+    import_file: "Importar arquivo"
+    home: "Início"
+  actions: Ações
+  time:
+    formats:
+      default: "%A, %d de %B de %Y, %H:%M h"
+      short: "%d/%m/%Y, %H:%M h"
+      long: "%A, %d de %B de %Y, %H:%M h"
+  activerecord:
+    models:
+      store: 
+        one: Loja
+        other: Lojas
+      transaction: 
+        one: Movimentação
+        other: Movimentações
+    attributes:
+      store:
+        name: Nome
+        owner: Dono
+        balance: Saldo
+      transaction:
+        kind: Tipo de movimentação
+        amount: Valor
+        amount_in_cents: Valor em centavos
+        cpf: CPF
+        card_number: Número do cartão
+        occurrence_at: Data da ocorrência
+      transaction/kind:
+        debit: Débito
+        boleto: Boleto
+        financing: Financiamento
+        credit: Crédito
+        loan_receipt: Recebimento Empréstimo
+        sales: Vendas
+        ted_receipt: Recebimento TED
+        doc_receipt: Recebimento DOC
+        rent: Aluguel

@@ -11,16 +11,6 @@ module ApplicationHelper
     options[key]
   end
 
-  def money(number)
-    ActiveSupport::NumberHelper.number_to_currency(
-      number,
-      unit: 'R$',
-      separator: ',',
-      delimiter: '.',
-      negative_format: '- %u %n'
-    )
-  end
-
   def cpf_humanized(cpf)
     return unless cpf.present?
 

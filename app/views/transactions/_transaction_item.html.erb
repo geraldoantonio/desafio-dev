@@ -1,10 +1,10 @@
 <tr>
-  <td><%= transaction.occurrence_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
+  <td><%= l(transaction.occurrence_at, format: :short) %></td>
   <td><%= transaction.card_number %></td>
   <td><%= cpf_humanized(transaction.cpf) %></td>
-  <td><%= transaction.kind %></td>
+  <td><%= Transaction.human_attribute_name("kind.#{transaction.kind}") %></td>
   <td style='display: none'><%= transaction.amount %></td>
   <td class='text-end' width='120px'>
-    <%= money(transaction.amount) %>
+    <%= number_to_currency(transaction.amount) %>
   </td>
 </tr>

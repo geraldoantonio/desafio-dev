@@ -1,14 +1,17 @@
 <div class='content my-4 d-flex justify-content-between'>
   <div>
     <h3><%= @store.name %></h3>
-    <p><span class='fw-bold'>Owner:</span> <%= @store.owner %></p>
-    <p><span class='fw-bold'>Balance:</span> <%= money(@store.balance) %></p>
+    <p><span class='fw-bold'>
+      <%= Store.human_attribute_name(:owner) %>: </span> <%= @store.owner %>
+    </p>
+    <p><span class='fw-bold'>
+        <%= Store.human_attribute_name(:balance) %>: </span> <%= number_to_currency(@store.balance) %></p>
   </div>
 
   <div>
-    <%= link_to 'Home', root_path, class: 'btn btn-sm  btn-secondary' %>
+    <%= link_to t('buttons.home'), root_path, class: 'btn btn-sm  btn-secondary' %>
 
-    <%= link_to 'Import from file', transactions_import_path, class: 'btn btn-sm  btn-primary' %>
+    <%= link_to t('buttons.import_file'), transactions_import_path, class: 'btn btn-sm  btn-primary' %>
   </div>
 </div>
 

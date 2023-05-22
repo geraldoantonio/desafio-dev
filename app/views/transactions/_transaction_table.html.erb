@@ -1,12 +1,22 @@
 <table id='transactions' class='display table table-striped table-hover'>
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Occurrence At</th>
-      <th scope="col">Card Number</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Kind</th>
+      <th scope="col">
+        <%= Transaction.human_attribute_name(:occurrence_at) %>
+      </th>
+      <th scope="col">
+        <%= Transaction.human_attribute_name(:card_number) %>
+      </th>
+      <th scope="col">
+        <%= Transaction.human_attribute_name(:cpf) %>
+      </th>
+      <th scope="col">
+        <%= Transaction.human_attribute_name(:kind) %>
+      </th>
       <th style='display:none'></th>
-      <th scope="col">Amount</th>
+      <th scope="col">
+        <%= Transaction.human_attribute_name(:amount) %>
+      </th>
     </tr>
   </head>
 
@@ -16,7 +26,7 @@
 
   <tfoot>
     <tr>
-      <th colspan='4' class= 'text-end'>Soma:</th>
+      <th colspan='4' class= 'text-end'><%= t('sum') %>:</th>
       <th class='text-end'></th>
     </tr>
   </tfoot>

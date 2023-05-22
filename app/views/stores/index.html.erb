@@ -1,10 +1,10 @@
 <div class='content my-4 d-flex justify-content-between'>
   <div>
-    <h1>Stores</h1>
+    <h1><%= Store.model_name.human(count: 2) %></h1>
   </div>
 
   <div>
-    <%= link_to 'Import from file', transactions_import_path, class: 'btn btn-sm  btn-primary' %>
+    <%= link_to t('buttons.import_file'), transactions_import_path, class: 'btn btn-sm  btn-primary' %>
   </div>
 </div>
 
@@ -13,5 +13,5 @@
     <%= render partial: 'stores_table', locals: { stores: @stores }%>
   </div>
 <% else %>
-  <p>No stores found</p>
+  <p><%= t('no_stores') %></p>
 <% end %>
